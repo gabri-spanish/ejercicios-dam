@@ -14,8 +14,23 @@ public class Ejercicio2_tema2 {
 
         int comparacion = cadena1.compareTo(cadena2);
 
-        
+        if (comparacion < 0) {
 
+            System.out.println(cadena2 + " es mayor que " + cadena1);
+
+        }
+
+        if (comparacion == 0 ) {
+
+            System.out.println(cadena1 + " y " + cadena2 + " son iguales");
+
+        }
+
+        if (comparacion > 0 ) {
+
+            System.out.println(cadena1 + " es mayor que " + cadena2);
+
+        }
 
 
     }
