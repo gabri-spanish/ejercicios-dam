@@ -75,8 +75,6 @@ class ejercicio6 {
             int num = teclado.nextInt();
 
         }
-        int resultado = (num);
-        System.out.println("El resultado final es " + resultado);
 
     }
 }
