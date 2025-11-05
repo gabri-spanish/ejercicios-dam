@@ -86,20 +86,31 @@ class act4 {
 
 
         Scanner teclado = new Scanner(System.in);
-        int vector [] = new int [5];
+        int vector[] = new int[6];
+        int filtrado[] = new int [vector.length-1];
+        int borrar = 0;
         int aux = 0;
 
         System.out.println("Crea tu array");
-        for (int i=0; i<vector.length;i++) {
+        for (int i=0; i<filtrado.length;i++) {
             vector[i] = teclado.nextInt();
         }
-        System.out.println("");
 
         System.out.println(Arrays.toString(vector));
-        System.out.println("Escribe una posición que eliminar del array");
-        int pos = teclado.nextInt();
 
-        System.out.println(Arrays.toString(vector));
+        System.out.println("Escribe qué posición borrar");
+        borrar = teclado.nextInt();
+
+        for (int i=0; i<filtrado.length;i++) {
+
+            if (i==borrar) {
+                filtrado[i] = vector[i+1];
+            } else {
+                filtrado[i] = vector[i];
+            }
+
+        }
+        System.out.println(Arrays.toString(filtrado));
 
     }
 }
