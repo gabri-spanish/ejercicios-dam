@@ -18,7 +18,9 @@ public class practica_samurais {
         int equipo1[] = new int [7];
         int equipo2[] = new int [7];
 
+        rehacer:
         do {
+
             System.out.println("Introduce la fuerza de los samurais del equipo " + contador);
             team = teclado.next();
             String equipo [] = team.split(" ");
@@ -32,12 +34,12 @@ public class practica_samurais {
             if (vector.length != 7) {
 
             System.out.println("TIENEN QUE SER 7 SAMURAIS");
-            return;
+            continue rehacer;
 
             } else {
                 if (total != fuerza) {
                     System.out.println("Es mayor o menor a 30, debe ser igual a 30, hazlo de vuelta");
-                    return;
+                    continue rehacer;
                 }
                 else {
                     if (actual == 1) {
