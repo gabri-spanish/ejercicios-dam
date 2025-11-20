@@ -62,7 +62,89 @@ class BateriaEjerciciosMatrices2 {
 
             System.out.println();
         }
+        int suma=0;
+        for (int i=0;i< matriz.length;i++) {
+            suma = 0;
+            for (int j=0;j<matriz[i].length;j++) {
+                suma += matriz[i][j];
+            }
 
+            System.out.println("Fila " + (i+1) + " : " + suma);
+
+        }
+
+        for (int i=0;i< matriz[0].length;i++) {
+            suma = 0;
+            for (int j=0;j<matriz.length;j++) {
+
+                suma += matriz[j][i];
+
+            }
+
+            System.out.println("Columna " + (i+1) + " : " + suma);
+
+        }
+        suma = 0;
+        int fila = aleatorio.nextInt(matriz.length-1);
+        for (int i = 0; i<matriz[0].length; i++) {
+            suma += matriz[fila][i];
+        }
+
+        System.out.println("1 fila: " + suma);
+
+
+
+    }
+}
+
+class BateriaEjerciciosMatrices3 {
+    public static void main(String[] args) {
+
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.println("Cuántos estudiantes tienes?");
+        int estudiantes = teclado.nextInt();
+
+        System.out.println("Cuántas asignaturas tienen?");
+        int asignaturas = teclado.nextInt();
+
+        teclado.nextLine();
+
+        String notas[][] = new String[estudiantes+1][asignaturas+1];
+
+        notas[0][0] = "Estudiantes";
+
+        for (int i = 1; i < notas.length; i++) {
+            System.out.print("Introduce el nombre del alumno" + i + ":");
+            notas[i][0] = teclado.nextLine();
+        }
+
+        for (String fila[] : notas) {
+            for (String valor : fila) {
+                System.out.print(valor + " ");
+            }
+
+            System.out.println();
+
+        }
+
+        for (int i = 1; i < notas[0].length; i++) {
+            System.out.println("Introduce la asignatura" + i + ":");
+            notas[0][i] = teclado.nextLine();
+        }
+
+        for (int i = 0; i<notas.length; i++) {
+            for (int j=0; j<notas.length;j++) {
+                System.out.println("Introduce la nota de " + notas[i][0] + " para la asignatura " + notas[0][i]);
+                notas[i][i] = teclado.next();
+            }
+        }
+
+        for (String fila[] : notas) {
+            for (String valor : fila) {
+                System.out.println(valor + " ");
+            }
+        }
 
     }
 }
