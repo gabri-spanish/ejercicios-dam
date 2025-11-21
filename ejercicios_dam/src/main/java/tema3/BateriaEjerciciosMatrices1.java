@@ -115,7 +115,7 @@ class BateriaEjerciciosMatrices3 {
         notas[0][0] = "Estudiantes";
 
         for (int i = 1; i < notas.length; i++) {
-            System.out.print("Introduce el nombre del alumno" + i + ":");
+            System.out.println("Introduce el nombre del alumno" + i + ":");
             notas[i][0] = teclado.nextLine();
         }
 
@@ -128,22 +128,36 @@ class BateriaEjerciciosMatrices3 {
 
         }
 
-        for (int i = 1; i < notas[0].length; i++) {
-            System.out.println("Introduce la asignatura" + i + ":");
-            notas[0][i] = teclado.nextLine();
+        for (int j = 1; j < notas[0].length; j++) {
+            System.out.println("Introduce la asignatura" + j + ":");
+            notas[0][j] = teclado.nextLine();
         }
 
-        for (int i = 0; i<notas.length; i++) {
-            for (int j=0; j<notas.length;j++) {
-                System.out.println("Introduce la nota de " + notas[i][0] + " para la asignatura " + notas[0][i]);
-                notas[i][i] = teclado.next();
+        for (int i = 1; i<notas.length; i++) {
+            for (int j=1; j<notas[i].length;j++) {
+                System.out.println("Introduce la nota de " + notas[i][0] + " para la asignatura " + notas[0][j]);
+                notas[i][j] = teclado.next();
             }
         }
 
         for (String fila[] : notas) {
             for (String valor : fila) {
-                System.out.println(valor + " ");
+                System.out.print(valor + " ");
             }
+
+            System.out.println();
+
+        }
+
+        int total_notas = 0;
+        for (int i=0;i<notas[0].length;i++) {
+            for (int j=0;j<notas.length;j++) {
+                total_notas+=Integer.parseInt(notas[j][i]);
+
+            }
+
+            System.out.println("La nota media en la asignatura de " + notas[0][i] + " es " + (double) (total_notas/estudiantes));
+
         }
 
     }
