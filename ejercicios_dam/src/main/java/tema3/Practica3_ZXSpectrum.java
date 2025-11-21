@@ -1,0 +1,47 @@
+package tema3;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Practica3_ZXSpectrum {
+    public static void main(String[] args) {
+
+        Scanner teclado = new Scanner(System.in);
+
+
+        System.out.println("****** VALIDADOR DE COMPATIBILIDAD ZX SPECTRUM ******");
+        System.out.println("Introduce la resolución de tu pantalla (ancho x alto)...");
+        System.out.println("Ancho:");
+        int ancho = teclado.nextInt();
+        System.out.println("Alto:");
+        int alto = teclado.nextInt();
+
+        if (ancho % 8 != 0 || ancho >= 48 || alto % 8 != 0 || ancho>=48) {
+            System.out.println("RESOLUCIÓN INCORRECTA");
+            return;
+        }
+
+        teclado.nextLine();
+
+        String matriz[][] = new String [ancho][alto];
+
+        System.out.println("Introduce (línea a línea) los colores de tu imagen para cada píxel:");
+        for (int i=1;i<matriz.length;i++) {
+            for (int j=0; j<matriz[i].length;j++) {
+                matriz[j][0] = teclado.nextLine();
+            }
+
+            System.out.println();
+
+        }
+
+        for (String fila[] : matriz) {
+            for (String valor : fila) {
+                System.out.println(valor + " ");
+            }
+        }
+
+        System.out.println(Arrays.toString(matriz));
+
+    }
+}
