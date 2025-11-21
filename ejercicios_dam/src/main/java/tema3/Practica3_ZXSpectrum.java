@@ -20,15 +20,17 @@ public class Practica3_ZXSpectrum {
             System.out.println("RESOLUCIÓN INCORRECTA");
             return;
         }
+        
+        final int bloque = ancho/2;
 
         teclado.nextLine();
 
         String matriz[][] = new String [ancho][alto];
 
         System.out.println("Introduce (línea a línea) los colores de tu imagen para cada píxel:");
-        for (int i=1;i<matriz.length;i++) {
+        for (int i=1;i<matriz[0].length;i++) {
             for (int j=0; j<matriz[i].length;j++) {
-                matriz[j][0] = teclado.nextLine();
+                matriz[j][0] = teclado.next();
             }
 
             System.out.println();
