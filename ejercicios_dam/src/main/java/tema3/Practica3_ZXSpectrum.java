@@ -48,10 +48,26 @@ public class Practica3_ZXSpectrum {
             System.out.println(Arrays.toString(fila));
         }
 
+        String bloque1  = "";
+        String bloque2 = "";
         int conta = 0;
 
-        for (int i=0; i< matriz.length;i++) {
+        for (int i=0; i< alto;i+=8) {
+            for (int j=0; j<ancho; j+=8) {
+                if (bloque1.equals("")) {
+                    bloque1 = matriz[i][j];
+                } else if (matriz[i][j].equals(bloque1) && bloque2.equals("")) {
+                    bloque2 = matriz[i][j];
+                } else if (matriz[i][j].equals(bloque1) && matriz[i][j].equals(bloque2)) {
+                    conta = 3;
+                }
+            }
+        }
 
+        if (conta == 3)  {
+            System.out.println("No es compatible con ZX Spectrum");
+        } else {
+            System.out.println("Es compatible con ZX Spectrum");
         }
 
     }
