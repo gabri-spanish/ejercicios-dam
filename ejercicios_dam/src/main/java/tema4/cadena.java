@@ -10,11 +10,11 @@ public class cadena {
         System.out.println("Introduce una cadena...");
         String cadena = teclado.next();
 
-        String mayus = mayusculas(cadena);
+        cadena = mayusculas(cadena);
 
-        System.out.println(mayus);
+        System.out.println(cadena);
 
-        String partido = mayus(cadena);
+        int partido = conntarVocal(cadena);
 
         System.out.print(partido);
 
@@ -27,10 +27,42 @@ public class cadena {
 
     }
 
-    public static String mayus (String cadena) {
+    public static int conntarVocal (String cadena) {
+
+        int a = 0;
+        int e = 0;
+        int i = 0;
+        int o = 0;
+        int u = 0;
 
 
-        return cadena;
+        for (int j = 0; j < cadena.length(); j++) {
+            switch (cadena.charAt(j)) {
+                case 'A':
+                    a++;
+                    break;
+                case 'E':
+                    e++;
+                    break;
+                case 'I':
+                    i++;
+                    break;
+                case 'O':
+                    o++;
+                    break;
+                case 'U':
+                    u++;
+                    break;
+            }
+        }
+
+        System.out.println("A: " + a);
+        System.out.println("E: " + e);
+        System.out.println("I: " + i);
+        System.out.println("O: " + o);
+        System.out.println("U: " + u);
+
+        return a+e+i+o+u;
     }
 
 
