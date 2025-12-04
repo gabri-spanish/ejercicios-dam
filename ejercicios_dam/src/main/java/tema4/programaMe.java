@@ -8,36 +8,89 @@ public class programaMe {
 
         Scanner teclado = new Scanner(System.in);
         double dias[] = new double[6];
-        recaudar();
-        ventas(dias);
+        double  reca[] = recaudar();
+        System.out.println(Arrays.toString(reca));
+
+        System.out.println(diamax(reca));
+        double media = media(reca);
+        System.out.println(media);
+
+        double domingo = domingo(reca);
+
+        System.out.println(domingo);
+
+        if (domingo > media) {
+            System.out.println("SÍ");
+        } else {
+            System.out.println("NO");
+        }
 
     }
 
     public static double[] recaudar() {
 
         Scanner teclado = new Scanner(System.in);
-        double dias[] = new double[6];
+        double reca[] = new double[6];
 
-        for (int i = 0; i < dias.length; i++) {
-            System.out.print("Dia " + (i+1) + ": ");
-            dias[i] = teclado.nextDouble();
+        for (int i = 0; i < reca.length; i++) {
+            System.out.print("Dia " + (i+1) + "de la semana: ");
+            reca[i] = teclado.nextDouble();
         }
-        return dias;
+        return reca;
 
     }
 
-    public static double[] ventas(double dias[]) {
+    public static String diamax(double reca[]) {
 
-        int contador = 0;
-        for (int i = 0; i < dias.length; i++) {
-            if (dias[i+1]-1 > dias[i]) {
-                contador++;
-            }
+        double maximo = reca[0];
+        int dia = 0;
+        for (int i=0; i< reca.length; i++) {
+          if (reca[i] > maximo) {
+              maximo = reca[i];
+              dia = i;
+          }
         }
 
-        System.out.println(contador);
+        return dia_semana(dia);
 
-        return dias;
+    }
+
+    public static String dia_semana(int dia) {
+
+        switch (dia) {
+            case 0:
+                return "MARTES";
+            case 1:
+                return "MIERCOLES";
+            case 2:
+                return "JUEVES";
+            case 3:
+                return "VIERNES";
+            case 4:
+                return "SABADO";
+            case 5:
+                return "DOMINGO";
+
+        }
+
+        return "";
+
+    }
+
+    public static double media (double recaudacion[]) {
+        double acumulado = 0;
+
+        for (int i = 0; i < recaudacion.length; i++) {
+            acumulado += recaudacion[i];
+        }
+
+        return (acumulado/ recaudacion.length);
+
+    }
+
+    public static double domingo (double recaudacion[]) {
+
+        return recaudacion[recaudacion.length-1];
 
     }
 
