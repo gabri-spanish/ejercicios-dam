@@ -3,37 +3,40 @@ package tema4;
 import java.util.Scanner;
 
 public class LoteriaDeLaPeñaAtletica {
-    public static void main(String[] args) {
+        public static void main(String[] args) {
+            Scanner teclado = new Scanner(System.in);
 
-        int parte1 = introduceNumeros();
-        System.out.println(parte1);
-        int parte2 = numerosDecimo();
-        System.out.println(parte2);
 
+            System.out.println("Introduce cuántos boletos quieren los hinchas");
+            int boletos = teclado.nextInt();
+
+            for (int i = 0; i < boletos; i++) {
+                int cantidad = teclado.nextInt();
+                int[] decimo = new int[cantidad];
+
+                for (int j = 0; j < cantidad; j++) {
+                    decimo[j] = teclado.nextInt();
+                }
+
+                int resultado = contarPar(decimo);
+
+                System.out.println(resultado);
+            }
+
+        }
+
+        public static int contarPar(int[] numeros) {
+            int contador = 0;
+            for (int numero : numeros) {
+                if (ParImpar(numero)) {
+                    contador++;
+                }
+            }
+            return contador;
+        }
+
+        public static boolean ParImpar(int numero) {
+            return numero % 2 == 0;
+        }
     }
 
-    public static int introduceNumeros() {
-
-        Scanner teclado = new Scanner(System.in);
-
-        System.out.println("Introduce el número de décimos");
-        int numdec = teclado.nextInt();
-
-        return numdec;
-
-
-    }
-
-    public static int numerosDecimo () {
-
-        Scanner teclado = new Scanner(System.in);
-
-        System.out.println("Introduce cuántos números tendrá el décimo número " + );
-        int numdeci = teclado.nextInt();
-
-        return numdeci;
-
-
-    }
-
-}
