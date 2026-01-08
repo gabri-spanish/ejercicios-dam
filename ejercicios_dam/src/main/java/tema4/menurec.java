@@ -10,14 +10,8 @@ public class menurec {
 
         imprimirMenu();
 
-        System.out.println("Teclea tu opción:");
-        char opcion = teclado.next().charAt(0);
-
-        if (validarOpcion(opcion)) {
-            System.out.println("Válida");
-        } else {
-            System.out.println("No es válida");
-        }
+        System.out.println(digitos(4556));
+        System.out.println(potencias(2, 6));
 
 
     }
@@ -37,23 +31,42 @@ public class menurec {
 
     }
 
-    public static boolean validarOpcion(char opcion) {
+    public static int switchCase(int opcion) {
 
         switch (opcion) {
             case '1':
+                digitos(1);
             case '2':
+
             case '3':
             case '4':
             case '5':
             case '6':
             case '7':
             default:
-                return false;
+                break;
         }
 
+        return opcion;
     }
 
 
+    public static int digitos(int numero) {
 
+        if (numero < 10) {
+            return 1;
+        } else {
+            return 1+digitos(numero/10);
+        }
+    }
 
+    public static int potencias(int base, int exponente) {
+
+        if (exponente == 1) {
+            return base;
+        } else {
+            return base*potencias(base,--exponente);
+        }
+    }
 }
+
