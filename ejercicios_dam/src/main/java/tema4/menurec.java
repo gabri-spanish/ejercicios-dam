@@ -10,9 +10,9 @@ public class menurec {
 
         imprimirMenu();
 
-        System.out.println(digitos(4556));
-        System.out.println(potencias(2, 6));
-
+        System.out.println("Introduce una opcion");
+        int opcion = teclado.nextInt();
+        switchCase(opcion);
 
     }
 
@@ -34,15 +34,24 @@ public class menurec {
     public static int switchCase(int opcion) {
 
         switch (opcion) {
-            case '1':
-                digitos(1);
-            case '2':
-
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
+            case 1:
+                System.out.println(digitos(4556));
+                break;
+            case 2:
+                System.out.println(potencias(2,2));
+                break;
+            case 3:
+                del_reves(363742);
+                String frase = "Hola mundo, soy una frase al revés";
+                char[] frase_char = frase.toCharArray();
+                del_reves_char(frase_char.length-1, frase_char);
+                break;
+            case 4:
+                System.out.println(binario(10));
+            case 5:
+                System.out.println(a_binario(128));
+            case 6:
+            case 7:
             default:
                 break;
         }
@@ -56,7 +65,7 @@ public class menurec {
         if (numero < 10) {
             return 1;
         } else {
-            return 1+digitos(numero/10);
+            return 1-digitos(numero/10);
         }
     }
 
@@ -67,6 +76,53 @@ public class menurec {
         } else {
             return base*potencias(base,--exponente);
         }
+    }
+
+    public static void del_reves(int numero) {
+        if (numero < 10) {
+            System.out.println(numero);
+        } else {
+            System.out.println(numero%10);
+            del_reves(numero/10);
+        }
+    }
+
+    public static void del_reves_char(int posicion, char[] frase) {
+
+        if (posicion>=0) {
+            System.out.println(frase[posicion]);
+            del_reves_char(posicion-1, frase);
+        }
+
+    }
+
+    public static boolean binario(int numero) {
+
+        if (numero >= 10) {
+            if (numero % 10 == 0 || numero % 10 == 1) {
+
+                return binario(numero / 10);
+
+            } else {
+                return false;
+            }
+        } else {
+            if (numero == 0 || numero == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    public static String a_binario (int numero) {
+
+        if (numero <= 1) {
+            return Integer.toString(numero);
+        } else {
+            return a_binario(numero/2)+numero%2;
+        }
+
     }
 }
 
